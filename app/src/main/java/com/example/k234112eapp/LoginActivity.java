@@ -1,5 +1,6 @@
 package com.example.k234112eapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -44,6 +45,8 @@ public class LoginActivity extends AppCompatActivity {
         String password=editPassword.getText().toString();
         if (username.equalsIgnoreCase("admin") && password.equals("123")) {
             txtMessage.setText(getString(R.string.str_login_success));
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
         } else {
             txtMessage.setText(getString(R.string.str_login_failed));
         }

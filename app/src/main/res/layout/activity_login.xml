@@ -36,6 +36,7 @@
             android:textSize="24sp" />
 
         <EditText
+            android:text="admin"
             android:id="@+id/editUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,6 +54,7 @@
             android:textSize="24sp" />
 
         <EditText
+            android:text="123"
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

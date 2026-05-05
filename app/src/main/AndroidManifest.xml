@@ -24,9 +24,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K234112EApp">
         <activity
-            android:name=".FrameLayoutActivity"
+            android:name=".CalculatorActivity"
             android:exported="false" />
-        <!-- 🔥 LoginActivity là màn hình mở đầu -->
+        <activity
+            android:name=".FrameLayoutActivity"
+            android:exported="false" /> <!-- 🔥 LoginActivity là màn hình mở đầu -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">

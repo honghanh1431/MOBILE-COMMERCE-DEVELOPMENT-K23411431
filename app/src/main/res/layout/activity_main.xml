@@ -8,38 +8,60 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Welcome K234112E"
-        android:textColor="#2196F3"
-        android:textSize="34sp" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:onClick="say_hello"
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Click me!" />
-    <Button
-        android:onClick="close_app"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Close"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/str_say_hello"
-        android:textSize="24sp" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome K234112E"
+                android:textColor="@color/red"
+                android:textSize="34sp" />
 
-    <Button
-        android:onClick="click_say_hello"
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:text="@string/str_clickme_to_say_hello" />
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/pink_text"
+                android:onClick="say_hello"
+                android:text="Click me!" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/pink_text"
+                android:onClick="close_app"
+                android:text="Close" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_say_hello"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:backgroundTint="@color/pink_text"
+                android:onClick="click_say_hello"
+                android:text="@string/str_clickme_to_say_hello" />
+
+            <Button
+                android:onClick="openCalculatorApp"
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/pink_text"
+                android:text="@string/str_open_calculator_app" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
