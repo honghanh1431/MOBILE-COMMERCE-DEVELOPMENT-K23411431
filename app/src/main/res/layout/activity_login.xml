@@ -36,13 +36,13 @@
             android:textSize="24sp" />
 
         <EditText
-            android:text="admin"
             android:id="@+id/editUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/str_hint_username"
-            android:inputType="text" />
+            android:inputType="text"
+            android:text="admin" />
 
         <TextView
             android:id="@+id/textView5"
@@ -54,13 +54,43 @@
             android:textSize="24sp" />
 
         <EditText
-            android:text="123"
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/str_hint_password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:text="123" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_login_role" />
+
+        <RadioGroup
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radAdmin"
+                android:layout_width="179dp"
+                android:layout_height="wrap_content"
+                android:text="@string/str_role_admin" />
+
+            <RadioButton
+                android:id="@+id/radEmployee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_role_employee" />
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/chkSaveLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_save_login_infor" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,8 +118,7 @@
             android:id="@+id/txtMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/green_background"
-            android:text="TextView" />
+            android:background="@color/green_background" />
 
     </LinearLayout>
 

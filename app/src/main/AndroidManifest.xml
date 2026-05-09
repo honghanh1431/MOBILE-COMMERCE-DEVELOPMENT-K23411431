@@ -24,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K234112EApp">
         <activity
+            android:name=".EmployeeManagementActivity"
+            android:exported="false" />
+        <activity
             android:name=".CalculatorActivity"
             android:exported="false" />
         <activity
