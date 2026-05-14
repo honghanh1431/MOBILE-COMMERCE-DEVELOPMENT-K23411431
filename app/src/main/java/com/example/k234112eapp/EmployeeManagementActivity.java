@@ -120,16 +120,23 @@ public class EmployeeManagementActivity extends AppCompatActivity {
     }
 
     public void saveEmployee(View view) {
-        String id = edtId.getText().toString();
-        String name = edtName.getText().toString();
-        String phone = edtPhone.getText().toString();
+        String id = edtId.getText().toString().trim();
+        String name = edtName.getText().toString().trim();
+        String phone = edtPhone.getText().toString().trim();
+
+        if (id.isEmpty()) {
+            Toast.makeText(this, "Vui lòng nhập Mã nhân viên", Toast.LENGTH_SHORT).show();
+            edtId.requestFocus();
+            return;
+        }
+
         String newData = id + SEPARATOR + name + SEPARATOR + phone;
 
         int index = -1;
         for (int i = 0; i < listEmployee.size(); i++) {
             String item = listEmployee.get(i);
             String[] parts = item.split(SEPARATOR);
-            if (parts[0].equals(id)) {
+            if (parts[0].equalsIgnoreCase(id)) {
                 index = i;
                 break;
             }
@@ -138,9 +145,13 @@ public class EmployeeManagementActivity extends AppCompatActivity {
         if (index == -1) {
             // Nếu id chưa tồn tại thì thêm mới
             listEmployee.add(newData);
+            Toast.makeText(this, "Đã thêm nhân viên mới", Toast.LENGTH_SHORT).show();
+            // Cuộn xuống cuối danh sách để thấy mục mới thêm
+            lvEmployee.setSelection(listEmployee.size() - 1);
         } else {
             // Nếu id đã có thì cập nhật
             listEmployee.set(index, newData);
+            Toast.makeText(this, "Đã cập nhật thông tin nhân viên", Toast.LENGTH_SHORT).show();
         }
         adapterEmployee.notifyDataSetChanged();
 
@@ -152,7 +163,7 @@ public class EmployeeManagementActivity extends AppCompatActivity {
     }
 
     public void removeEmployee(View view) {
-        String id = edtId.getText().toString();
+        String id = edtId.getText().toString().trim();
         if (id.isEmpty()) {
             Toast.makeText(this, getString(R.string.msg_select_employee_to_delete), Toast.LENGTH_SHORT).show();
             return;
@@ -162,7 +173,7 @@ public class EmployeeManagementActivity extends AppCompatActivity {
         for (int i = 0; i < listEmployee.size(); i++) {
             String item = listEmployee.get(i);
             String[] parts = item.split(SEPARATOR);
-            if (parts[0].equals(id)) {
+            if (parts[0].equalsIgnoreCase(id)) {
                 index = i;
                 break;
             }

@@ -62,4 +62,11 @@
     </string>
 
     <string name="msg_delete_success">Đã xóa thành công</string>
+    <string-array name="employee_samples">
+        <item>e1-Tèo-0965669729</item>
+        <item>e2-Tý-0965669730</item>
+        <item>e3-Bin-0965669731</item>
+        <item>e4-Bo-0965669732</item>
+        <item>e5-Kun-0965669733</item>
+    </string-array>
 </resources>
