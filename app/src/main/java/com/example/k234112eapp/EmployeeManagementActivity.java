@@ -1,6 +1,7 @@
 package com.example.k234112eapp;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,8 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,6 +22,9 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 
 public class EmployeeManagementActivity extends AppCompatActivity {
+
+    private static final String SEPARATOR = "-";
+    private static final String EMPTY_STRING = "";
 
     Button btnExit;
 
@@ -46,11 +52,10 @@ public class EmployeeManagementActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        listEmployee.add("e1-Tèo-0965669729");
-        listEmployee.add("e2-Tý-0965669730");
-        listEmployee.add("e3-Bin-0965669731");
-        listEmployee.add("e4-Bo-0965669732");
-        listEmployee.add("e5-Kun-0965669733");
+        String[] samples = getResources().getStringArray(R.array.employee_samples);
+        for (String sample : samples) {
+            listEmployee.add(sample);
+        }
         //nói adapter cập nhật giao diện:
         adapterEmployee.notifyDataSetChanged();
     }
@@ -73,7 +78,7 @@ public class EmployeeManagementActivity extends AppCompatActivity {
 
     private void displayEmployeeInfor(int position) {
         String data=listEmployee.get(position);
-        String[]items=data.split("-");
+        String[]items=data.split(SEPARATOR);
         //hiển thị items [0] ---> id, items [1] --> name, items [2] -> phone
         edtId.setText(items[0]);
         edtName.setText(items[1]);
@@ -112,5 +117,88 @@ public class EmployeeManagementActivity extends AppCompatActivity {
         edtId=findViewById(R.id.edtId);
         edtName=findViewById(R.id.edtName);
         edtPhone=findViewById(R.id.edtPhone);
+    }
+
+    public void saveEmployee(View view) {
+        String id = edtId.getText().toString();
+        String name = edtName.getText().toString();
+        String phone = edtPhone.getText().toString();
+        String newData = id + SEPARATOR + name + SEPARATOR + phone;
+
+        int index = -1;
+        for (int i = 0; i < listEmployee.size(); i++) {
+            String item = listEmployee.get(i);
+            String[] parts = item.split(SEPARATOR);
+            if (parts[0].equals(id)) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index == -1) {
+            // Nếu id chưa tồn tại thì thêm mới
+            listEmployee.add(newData);
+        } else {
+            // Nếu id đã có thì cập nhật
+            listEmployee.set(index, newData);
+        }
+        adapterEmployee.notifyDataSetChanged();
+
+        // Xóa trắng các ô nhập liệu và focus về ô ID
+        edtId.setText(EMPTY_STRING);
+        edtName.setText(EMPTY_STRING);
+        edtPhone.setText(EMPTY_STRING);
+        edtId.requestFocus();
+    }
+
+    public void removeEmployee(View view) {
+        String id = edtId.getText().toString();
+        if (id.isEmpty()) {
+            Toast.makeText(this, getString(R.string.msg_select_employee_to_delete), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int index = -1;
+        for (int i = 0; i < listEmployee.size(); i++) {
+            String item = listEmployee.get(i);
+            String[] parts = item.split(SEPARATOR);
+            if (parts[0].equals(id)) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index == -1) {
+            Toast.makeText(this, getString(R.string.msg_employee_not_found), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        final int deleteIndex = index;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.dialog_delete_confirm_title));
+        builder.setMessage(getString(R.string.dialog_delete_confirm_msg, id));
+        builder.setIcon(android.R.drawable.ic_delete);
+        builder.setPositiveButton(getString(R.string.str_yes), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                listEmployee.remove(deleteIndex);
+                adapterEmployee.notifyDataSetChanged();
+                
+                // Xóa trắng sau khi xóa
+                edtId.setText(EMPTY_STRING);
+                edtName.setText(EMPTY_STRING);
+                edtPhone.setText(EMPTY_STRING);
+                edtId.requestFocus();
+                
+                Toast.makeText(EmployeeManagementActivity.this, getString(R.string.msg_delete_success), Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton(getString(R.string.str_no), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.create().show();
     }
 }

@@ -4,32 +4,62 @@
     <string name="str_value">Chào mừng K234112E</string>
     <string name="str_say_hello">Xin chào K234112E</string>
     <string name="str_clickme_to_say_hello">Xin chàooo</string>
-    <string name="str_login_system">"Đăng nhập hệ thống"</string>
-    <string name="str_username">Username:</string>
-    <string name="str_hint_username">Enter your user name</string>
-    <string name="str_password">Password:</string>
-    <string name="str_hint_password">Enter your password</string>
-    <string name="str_login">Login</string>
-    <string name="str_exit">Exit</string>
-    <string name="str_login_success">Đăng nhập thành công!!!!</string>
+
+    <string name="str_login_system">Đăng nhập hệ thống</string>
+    <string name="str_username">Tên đăng nhập:</string>
+    <string name="str_hint_username">Nhập tên đăng nhập</string>
+
+    <string name="str_password">Mật khẩu:</string>
+    <string name="str_hint_password">Nhập mật khẩu</string>
+
+    <string name="str_login">Đăng nhập</string>
+    <string name="str_exit">Thoát</string>
+
+    <string name="str_login_success">Đăng nhập thành công!</string>
     <string name="str_login_failed">Đăng nhập thất bại</string>
+
     <string name="str_mc">MC</string>
     <string name="str_mr">MR</string>
     <string name="str_mplus">M+</string>
     <string name="str_mminus">M-</string>
     <string name="str_ms">MS</string>
     <string name="str_m">M</string>
-    <string name="str_open_calculator_app">Open Calculator App</string>
-    <string name="str_save_login_infor">save login information</string>
-    <string name="str_login_role">Login Role</string>
-    <string name="str_role_admin">Adminstrator</string>
-    <string name="str_role_employee">Employee</string>
-    <string name="str_confirm_exit_title">Confirm exit</string>
-    <string name="str_confirm_exit_message">Muốn thoát hả?</string>
+
+    <string name="str_open_calculator_app">Mở ứng dụng máy tính</string>
+    <string name="str_save_login_infor">Lưu thông tin đăng nhập</string>
+
+    <string name="str_login_role">Vai trò đăng nhập</string>
+    <string name="str_role_admin">Quản trị viên</string>
+    <string name="str_role_employee">Nhân viên</string>
+
+    <string name="str_confirm_exit_title">Xác nhận thoát</string>
+    <string name="str_confirm_exit_message">Bạn muốn thoát hả?</string>
+
     <string name="str_yes">CÓ</string>
     <string name="str_no">KHÔNG</string>
-    <string name="str_employee_id">Employee Id:</string>
-    <string name="str_employee_name">Employee Name:</string>
-    <string name="str_phone_number">Phone Number</string>
-    <string name="str_confirm_exit">Are you sure you want to exit?</string>
+
+    <string name="str_employee_id">Mã nhân viên:</string>
+    <string name="str_employee_name">Tên nhân viên:</string>
+    <string name="str_phone_number">Số điện thoại:</string>
+
+    <string name="str_save">Lưu</string>
+    <string name="str_delete">Xóa</string>
+
+    <string name="str_confirm_exit">Bạn có chắc muốn thoát không?</string>
+
+    <string name="msg_select_employee_to_delete">
+        Vui lòng chọn nhân viên để xóa
+    </string>
+
+    <string name="msg_employee_not_found">
+        Không tìm thấy nhân viên để xóa
+    </string>
+
+    <string name="dialog_delete_confirm_title">Xác nhận xóa</string>
+
+    <string name="dialog_delete_confirm_msg">
+        Bạn có chắc chắn muốn xóa nhân viên [%1$s] không?
+    </string>
+
+    <string name="msg_delete_success">Đã xóa thành công</string>
 </resources>
