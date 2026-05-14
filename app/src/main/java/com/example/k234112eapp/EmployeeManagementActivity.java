@@ -3,8 +3,10 @@ package com.example.k234112eapp;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -23,6 +25,8 @@ public class EmployeeManagementActivity extends AppCompatActivity {
     ListView lvEmployee;
     ArrayList<String>listEmployee;
     ArrayAdapter<String>adapterEmployee;
+
+    EditText edtId, edtName, edtPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,22 @@ public class EmployeeManagementActivity extends AppCompatActivity {
                 processExit();
             }
         });
+
+        lvEmployee.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                displayEmployeeInfor(position);
+            }
+        });
+    }
+
+    private void displayEmployeeInfor(int position) {
+        String data=listEmployee.get(position);
+        String[]items=data.split("-");
+        //hiển thị items [0] ---> id, items [1] --> name, items [2] -> phone
+        edtId.setText(items[0]);
+        edtName.setText(items[1]);
+        edtPhone.setText(items[2]);
     }
 
     private void processExit() {
@@ -88,5 +108,9 @@ public class EmployeeManagementActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,
                 listEmployee);
         lvEmployee.setAdapter(adapterEmployee);
+
+        edtId=findViewById(R.id.edtId);
+        edtName=findViewById(R.id.edtName);
+        edtPhone=findViewById(R.id.edtPhone);
     }
 }
