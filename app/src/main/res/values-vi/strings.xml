@@ -28,4 +28,8 @@
     <string name="str_confirm_exit_message">Muốn thoát hả?</string>
     <string name="str_yes">CÓ</string>
     <string name="str_no">KHÔNG</string>
+    <string name="str_employee_id">Employee Id:</string>
+    <string name="str_employee_name">Employee Name:</string>
+    <string name="str_phone_number">Phone Number</string>
+    <string name="str_confirm_exit">Are you sure you want to exit?</string>
 </resources>

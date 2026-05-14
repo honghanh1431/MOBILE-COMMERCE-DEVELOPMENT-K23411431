@@ -43,3 +43,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+//git add .
+//git commit -m "update"
+//git push
